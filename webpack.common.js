@@ -30,9 +30,7 @@ module.exports = {
   },
   output: {
     filename: 'js/[name].bundle.js',
-    publicPath: '',
     path: `${paths.dist}`,
-    assetModuleFilename: 'img/[name][ext]'
   },
   optimization: {
     minimize: true,
