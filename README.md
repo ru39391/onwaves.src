@@ -1,10 +1,16 @@
-# Онлайн школа вокала OnWaves.ru. Курсы вокала "По волнам".
+# Онлайн-школа вокала OnWaves.ru. Курсы вокала "По волнам".
 
-[onwaves.ru](https://onwaves.ru/)
+[onwaves.ru](https://onwaves.ru/){:target="_blank"} 
 
-[freelance.ru](https://freelance.ru/nutheadbeast/onlajn-shkola-vokala-onwaves-2021-g-4226528.html)
+[freelance.ru](https://freelance.ru/nutheadbeast/onlajn-shkola-vokala-onwaves-2021-g-4226528.html){:target="_blank"} 
 
 Дизайн - Сергей, tg: **@glumglam**
+
+# Техническая информация:
+
+- node v12.16.3 и выше;
+- dev-режим **npm run dev**;
+- prod-режим **npm run build**;
 
 # Доработки:
 
