@@ -1,0 +1,490 @@
+include libs/mixins
+
+block meta
+  - var pageClass = '';
+  - var leftmenu = false;
+  - var title = 'Элементы интерфейса';
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    title Личный кабинет / #{title}
+    meta(name="keywords" content="")
+    meta(name="description" content="")
+
+    link(href="img/favicon.ico" rel="shortcut icon")
+  body
+    block panel
+        .panel
+            .panel__top
+                header.panel__header
+                    a.panel__user(href="account-profile.html")
+                        span.panel__user-picture
+                            +image('content/userpic.jpg')
+                        span.panel__user-title Владимир
+                .panel__bookmark
+                    a.btn.btn_icon(href="#")
+                        +icon('bookmark','btn__icon')
+                nav.panel__menu
+                    //- a.panel__menu-item.panel__menu-item_current(href="#")
+                        span.panel__menu-icon
+                            +icon('profile')
+                        span.panel__menu-title Редактировать профиль
+                    a.panel__menu-item(href="#")
+                        span.panel__menu-icon
+                            +icon('courses')
+                        span.panel__menu-title Курсы
+                    a.panel__menu-item(href="#")
+                        span.panel__menu-icon
+                            +icon('payment')
+                        span.panel__menu-title Платежи
+                    a.panel__menu-item(href="#")
+                        span.panel__menu-icon
+                            +icon('logout')
+                        span.panel__menu-title Выход
+            footer.panel__footer
+                .panel__logo
+                    +icon('logo-vertical')
+    .page(class=pageClass)
+        block sidebar
+            .sidebar
+                header.sidebar__header
+                    a.btn.btn_md.btn_flex(href="#")
+                        +icon('bookmark','btn__icon')
+                        | Продолжить с закладки
+                .sidebar__wrapper
+                    if !leftmenu
+                        nav.leftmenu
+                            .leftmenu__item.leftmenu__item_category
+                                button.leftmenu__toggler(type="button")
+                                    span.leftmenu__toggler-title Скрыть
+                                    +icon('arrow','leftmenu__icon')
+                                a.leftmenu__link(href="#") Базовые курсы
+                            .leftmenu__children
+                                .leftmenu__item.leftmenu__item_nopx
+                                    a.leftmenu__link.leftmenu__link_bg(href="#") Пробное занятие
+                                .leftmenu__item
+                                    button.leftmenu__toggler(type="button")
+                                        span.leftmenu__toggler-title Скрыть
+                                        +icon('arrow','leftmenu__icon')
+                                    a.leftmenu__link(href="#") Первая волна
+                                .leftmenu__children
+                                    .leftmenu__item.leftmenu__item_locked
+                                        button.leftmenu__toggler(type="button")
+                                            span.leftmenu__toggler-title Скрыть
+                                            +icon('arrow','leftmenu__icon')
+                                        a.leftmenu__link(href="#") 1 неделя
+                                            +icon('lock','leftmenu__locked')
+                                    .leftmenu__children
+                                        .leftmenu__desc
+                                            +icon('checked-border','leftmenu__icon')
+                                            | Отмечены пройденные уроки
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_bg(href="#") 1 день
+                                                +icon('lock','leftmenu__locked')
+                                                +icon('checked-border','leftmenu__icon')
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_bg(href="#") 2 день
+                                                +icon('lock','leftmenu__locked')
+                                                +icon('checked-border','leftmenu__icon')
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_bg(href="#") 3 день
+                                                +icon('lock','leftmenu__locked')
+                                    .leftmenu__item.leftmenu__item_locked
+                                        button.leftmenu__toggler(type="button")
+                                            span.leftmenu__toggler-title Скрыть
+                                            +icon('arrow','leftmenu__icon')
+                                        a.leftmenu__link(href="#") 2 неделя
+                                            +icon('lock','leftmenu__locked')
+                                    .leftmenu__children
+                                        .leftmenu__desc
+                                            +icon('checked-border','leftmenu__icon')
+                                            | Отмечены пройденные уроки
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_bg(href="#") 1 день
+                                                +icon('lock','leftmenu__locked')
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_bg(href="#") 2 день
+                                                +icon('lock','leftmenu__locked')
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_bg(href="#") 3 день
+                                                +icon('lock','leftmenu__locked')
+                                    .leftmenu__item.leftmenu__item_nopx
+                                        a.leftmenu__link(href="#") 3 неделя
+                                .leftmenu__item
+                                    button.leftmenu__toggler(type="button")
+                                        span.leftmenu__toggler-title Скрыть
+                                        +icon('arrow','leftmenu__icon')
+                                    a.leftmenu__link(href="#") Вторая волна
+                                .leftmenu__item
+                                    button.leftmenu__toggler(type="button")
+                                        span.leftmenu__toggler-title Скрыть
+                                        +icon('arrow','leftmenu__icon')
+                                    a.leftmenu__link(href="#") Третья волна
+
+                            .leftmenu__item.leftmenu__item_category
+                                button.leftmenu__toggler(type="button")
+                                    span.leftmenu__toggler-title Скрыть
+                                    +icon('arrow','leftmenu__icon')
+                                a.leftmenu__link(href="#") Спецкурсы
+                    else
+                        nav.leftmenu
+                            .leftmenu__item.leftmenu__item_category
+                                button.leftmenu__toggler(type="button")
+                                    span.leftmenu__toggler-title Скрыть
+                                    +icon('arrow','leftmenu__icon')
+                                a.leftmenu__link(href="#") Базовые курсы / для начинающих :
+                            .leftmenu__children
+                                .leftmenu__item.leftmenu__item_nopx
+                                    a.leftmenu__link.leftmenu__link_btn(href="#") Пробное занятие
+                                .leftmenu__item
+                                    button.leftmenu__toggler(type="button")
+                                        span.leftmenu__toggler-title Скрыть
+                                        +icon('arrow','leftmenu__icon')
+                                    a.leftmenu__link(href="#") Первая волна
+                                .leftmenu__children
+                                    .leftmenu__item.leftmenu__item_locked
+                                        button.leftmenu__toggler(type="button")
+                                            span.leftmenu__toggler-title Скрыть
+                                            +icon('arrow','leftmenu__icon')
+                                        a.leftmenu__link(href="#") 1 неделя
+                                            +icon('lock','leftmenu__locked')
+                                    .leftmenu__children
+                                        .leftmenu__desc
+                                            +icon('checked-border','leftmenu__icon')
+                                            | Отмечены пройденные уроки
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_btn(href="#") 1 день
+                                                +icon('lock','leftmenu__locked')
+                                                +icon('checked-border','leftmenu__icon')
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_btn(href="#") 2 день
+                                                +icon('lock','leftmenu__locked')
+                                                +icon('checked-border','leftmenu__icon')
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_btn(href="#") 3 день
+                                                +icon('lock','leftmenu__locked')
+                                    .leftmenu__item.leftmenu__item_locked
+                                        button.leftmenu__toggler(type="button")
+                                            span.leftmenu__toggler-title Скрыть
+                                            +icon('arrow','leftmenu__icon')
+                                        a.leftmenu__link(href="#") 2 неделя
+                                            +icon('lock','leftmenu__locked')
+                                    .leftmenu__children
+                                        .leftmenu__desc
+                                            +icon('checked-border','leftmenu__icon')
+                                            | Отмечены пройденные уроки
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_btn(href="#") 1 день
+                                                +icon('lock','leftmenu__locked')
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_btn(href="#") 2 день
+                                                +icon('lock','leftmenu__locked')
+                                        .leftmenu__item.leftmenu__item_locked
+                                            a.leftmenu__link.leftmenu__link_btn(href="#") 3 день
+                                                +icon('lock','leftmenu__locked')
+                                    .leftmenu__item.leftmenu__item_nopx
+                                        a.leftmenu__link(href="#") 3 неделя
+                                .leftmenu__item
+                                    button.leftmenu__toggler(type="button")
+                                        span.leftmenu__toggler-title Скрыть
+                                        +icon('arrow','leftmenu__icon')
+                                    a.leftmenu__link(href="#") Вторая волна
+                                .leftmenu__item
+                                    button.leftmenu__toggler(type="button")
+                                        span.leftmenu__toggler-title Скрыть
+                                        +icon('arrow','leftmenu__icon')
+                                    a.leftmenu__link(href="#") Третья волна
+
+                            .leftmenu__item.leftmenu__item_category
+                                button.leftmenu__toggler(type="button")
+                                    span.leftmenu__toggler-title Скрыть
+                                    +icon('arrow','leftmenu__icon')
+                                a.leftmenu__link(href="#") Базовые курсы / для профи
+
+                            .leftmenu__item.leftmenu__item_category
+                                button.leftmenu__toggler(type="button")
+                                    span.leftmenu__toggler-title Скрыть
+                                    +icon('arrow','leftmenu__icon')
+                                a.leftmenu__link(href="#") Спец курсы / играть на укулеле легко
+                button.sidebar__toggler(type="button")
+                    +icon('arrow')
+
+        block wrapper
+            .wrapper.wrapper_row
+                .content.content_sm.content_column
+                    header.content__header
+                        .content__title #{title}
+                        button.content__toggler.show-tooltip(type="button")
+                            +icon('faq')
+                    block content
+                        .content__body
+                            .content__pathway.content__pathway_mobile
+                                .content__pathway-item 1 неделя / 1 день
+                                button.btn.btn_colored.btn_xxs.show-sidebar(type="button") Выбрать урок
+                            p
+                                a.text-underline(href="#" data-toggle="modal" data-target="#error")
+                                    b Ошибка
+                            p
+                                a.text-underline(href="#" data-toggle="modal" data-target="#success")
+                                    b Действие успешно завершено
+                            p
+                                a.text-underline(href="#" data-toggle="modal" data-target="#info")
+                                    b Информационное сообщение
+                            p
+                                a.text-underline(href="#" data-toggle="modal" data-target="#getcourse")
+                                    b Понравилось? Значит мы на одной волне!
+
+                            p
+                                | .btn
+                                br
+                                br
+                                button.btn(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_md
+                                br
+                                br
+                                button.btn.btn_md(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_xs
+                                br
+                                br
+                                button.btn.btn_xs(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_sm
+                                br
+                                br
+                                button.btn.btn_sm(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_lg
+                                br
+                                br
+                                button.btn.btn_lg(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_xl
+                                br
+                                br
+                                button.btn.btn_xl(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_standart
+                                br
+                                br
+                                button.btn.btn_standart(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_regular
+                                br
+                                br
+                                button.btn.btn_regular(type="button") Отправить
+                            p
+                                | .btn.btn_colored
+                                br
+                                br
+                                button.btn.btn_colored(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_colored.btn_md
+                                br
+                                br
+                                button.btn.btn_colored.btn_md(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_colored.btn_xs
+                                br
+                                br
+                                button.btn.btn_colored.btn_xs(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_colored.btn_sm
+                                br
+                                br
+                                button.btn.btn_colored.btn_sm(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_colored.btn_lg
+                                br
+                                br
+                                button.btn.btn_colored.btn_lg(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_colored.btn_xl
+                                br
+                                br
+                                button.btn.btn_colored.btn_xl(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_colored.btn_standart
+                                br
+                                br
+                                button.btn.btn_colored.btn_standart(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_colored.btn_regular
+                                br
+                                br
+                                button.btn.btn_colored.btn_regular(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_inverse
+                                br
+                                br
+                                button.btn.btn_inverse(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_inverse.btn_md
+                                br
+                                br
+                                button.btn.btn_inverse.btn_md(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_inverse.btn_xs
+                                br
+                                br
+                                button.btn.btn_inverse.btn_xs(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_inverse.btn_sm
+                                br
+                                br
+                                button.btn.btn_inverse.btn_sm(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_inverse.btn_lg
+                                br
+                                br
+                                button.btn.btn_inverse.btn_lg(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_inverse.btn_xl
+                                br
+                                br
+                                button.btn.btn_inverse.btn_xl(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_inverse.btn_standart
+                                br
+                                br
+                                button.btn.btn_inverse.btn_standart(type="button") Отправить
+                            
+                            p
+                                | .btn.btn_inverse.btn_regular
+                                br
+                                br
+                                button.btn.btn_inverse.btn_regular(type="button") Отправить
+
+                block rightmenu
+                    - var rightmenu = [{icon: 'logo', title: 'Вступление'},{icon: 'logo', title: 'Дыхание животом'},{icon: 'logo', title: 'Дыхание огня'},{icon: 'logo', title: 'Шипящий звук «Ф»'},{icon: 'logo', title: 'три упражнения в одном блоке'},{icon: 'logo', title: 'Дыхательный квадрат'},{icon: 'logo', title: 'Шипящие звуки на 4 счета'},{icon: 'logo', title: 'Губошлёп'},{icon: 'logo', title: 'Мычание'},{icon: 'logo', title: 'Природный стон'}];
+                    nav.rightmenu
+                        header.rightmenu__header
+                            .rightmenu__title Плейлист
+                        .rightmenu__wrapper
+                            a.rightmenu__item.rightmenu__item_current(href="#")
+                                span.rightmenu__picture
+                                    img.img-fluid(src="../img/content/logo.png" alt="")
+                                | Первая волна
+                            a.rightmenu__item(href="#")
+                                span.rightmenu__picture.rightmenu__bordered
+                                    +icon('test')
+                                | Проверочный тест первой недели
+                            div.rightmenu__item.rightmenu__item_blocked
+                                span.rightmenu__picture
+                                    img.img-fluid(src="../img/content/logo.png" alt="")
+                                | Упражнение акторов театра «КАБУКИ»
+                            div.rightmenu__item.rightmenu__item_blocked
+                                span.rightmenu__picture
+                                    img.img-fluid(src="../img/content/logo.png" alt="")
+                                | Танцевальная медитация
+                            a.rightmenu__item(href="#")
+                                span.rightmenu__picture.rightmenu__bordered
+                                    +icon('award')
+                                | Диплом
+                            each rightmenu__item in rightmenu
+                                a.rightmenu__item(href="#")
+                                    span.rightmenu__picture
+                                        +icon(rightmenu__item.icon)
+                                    | #{rightmenu__item.title}
+
+                include includes/base/footer
+
+    include includes/account/modal
+
+    button.btn.btn_up(type="button")
+        +icon('btn-up')
+
+    .modal.modal_custom.fade(id="error" tabindex="-1" role="dialog" aria-hidden="true")
+        .modal-dialog
+            .modal-content
+                .modal-header.modal-header_column
+                    .modal-title.modal-title_flex.modal-title_error
+                        +icon('danger','modal__icon')
+                        | Что-то
+                        br
+                        | пошло не так
+                .modal-body.text-center
+                    p.text-colored Текст сообщения
+                footer.modal-footer.text-center
+                    button.btn.btn_regular.btn_inverse(type="button" data-dismiss="modal" aria-label="Close") ОК
+
+    .modal.modal_custom.fade(id="success" tabindex="-1" role="dialog" aria-hidden="true")
+        .modal-dialog
+            .modal-content
+                .modal-header.modal-header_column
+                    .modal-title.modal-title_flex.modal-title_success
+                        +icon('success','modal__icon')
+                        | Действие
+                        br
+                        | успешно завершено
+                .modal-body.text-center
+                    p.text-colored Текст сообщения
+                footer.modal-footer.text-center
+                    button.btn.btn_regular.btn_inverse(type="button" data-dismiss="modal" aria-label="Close") ОК
+
+    .modal.modal_custom.fade(id="info" tabindex="-1" role="dialog" aria-hidden="true")
+        .modal-dialog
+            .modal-content
+                .modal-header.modal-header_column
+                    .modal-title.modal-title_flex
+                        +icon('info','modal__icon')
+                        | Информационное
+                        br
+                        | сообщение
+                .modal-body.text-center
+                    p.text-colored Текст сообщения
+                footer.modal-footer.text-center
+                    button.btn.btn_regular.btn_inverse(type="button" data-dismiss="modal" aria-label="Close") ОК
+
+    .modal.modal_custom.fade(id="getcourse" tabindex="-1" role="dialog" aria-hidden="true")
+        .modal-dialog
+            .modal-content.modal-content_raleway
+                .modal-content__bg
+                    img.img-fluid(src="../img/bg/bg-modal.svg" alt="")
+                .modal-header.modal-header_column
+                    .modal-title.modal-title_lg.modal-title_offset Понравилось? Значит мы на одной волне! Записывайтесь на наш курс и освободите свой голос.
+                    button.close(type="button" data-dismiss="modal" aria-label="Close")
+                        +icon('close')
+                footer.modal-footer.text-center
+                    a.btn.btn_lg.btn_main(href="#") Записаться на курс
+
+    link(rel="preconnect" href="https://fonts.gstatic.com")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald&family=Raleway:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js")
+
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/core.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/dropdown.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/touch.js")
+
+    link(href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet")
+    script(src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js")
+
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.min.css" rel="stylesheet")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js")

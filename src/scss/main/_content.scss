@@ -1,0 +1,31 @@
+.content {
+    @include fs-lh(14px,18px);
+    letter-spacing: 0.05em;
+
+    &.content_pr {
+        padding: 0 0 0 50px;
+    }
+
+    @include media-breakpoint-down(lg) {
+        margin: 0 0 36px;
+    }
+}
+
+.content__intro {
+    @include fs-lh(18px,24px);
+    letter-spacing: 0.03em;
+    margin: 0 0 24px;
+    opacity: 0.44;
+}
+
+.content__title {
+    @extend .section__title;
+    
+    @include media-breakpoint-up(md) {
+        margin: 0 0 38px;
+    }
+}
+
+.content__footer {
+    @include wh(65px,16px);
+}

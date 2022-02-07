@@ -1,0 +1,538 @@
+include libs/mixins
+
+block meta
+  - var title = 'Главная';
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    title Курс / #{title}
+    meta(name="keywords" content="")
+    meta(name="description" content="")
+
+    link(href="img/favicon.ico" rel="shortcut icon")
+  body
+    #top.trigger
+      .trigger__bg
+        svg.icon-fluid
+          use(xlink:href="#bg-trigger")
+      .trigger__wrapper
+        .trigger__title До начала вебинара осталось:
+        .trigger__content
+          .counter.counter_main.counter_noborder
+            .counter__hidden
+            .counter__date 2022,1,3,12,34
+            .counter__wrapper
+        .trigger__footer
+          button.btn.btn_xl.btn_main(type="button") Присоединиться к вебинару
+    header.top
+      .header
+        a.header__logo(href="/")
+          svg.icon-fluid
+            use(xlink:href="#icon-logo-main")
+
+        button.header__toggler.header__toggler_menu(type="button")
+          svg.icon-fluid
+            use(xlink:href="#icon-menu")
+        block nav
+          nav.nav.nav_header
+            button.nav__close(type="button")
+              svg.icon-fluid
+                use(xlink:href="#icon-close")
+            .nav__left
+              a.nav__link.nav__link_main.page-anchor(href="#target") для кого
+              a.nav__link.nav__link_main.page-anchor(href="#courses") курсы
+              a.nav__link.nav__link_main.page-anchor(href="#price") тарифы
+              a.nav__link.nav__link_main.page-anchor(href="#reviews") отзывы
+              a.nav__link.nav__link_main.page-anchor(href="#contacts") контакты
+
+            .nav__right
+              a.nav__link(href="#" data-toggle="modal" data-target="#auth") Вход
+              a.nav__link(href="#" data-toggle="modal" data-target="#reg") Регистрация
+
+          .social.social_header
+            a.social__item.social__item_sm(href="https://wa.me/79034071717")
+              svg.icon-fluid
+                use(xlink:href="#icon-contacts-wapp")
+            a.social__item.social__item_sm(href="#")
+              svg.icon-fluid
+                use(xlink:href="#icon-contacts-tg")
+            a.social__item.social__item_sm(href="tel:+79034071717")
+              svg.icon-fluid
+                use(xlink:href="#icon-contacts-phone")
+
+    block page
+      .intro.swiper-container
+        .swiper-wrapper
+          .intro__slide.swiper-slide(style="background-image:url(../img/content/slides/slide-1.jpg);")
+            img.intro__picture.intro__picture_sm(src="../img/content/sm/1.png" alt="")
+            img.intro__picture.intro__picture_lg(src="../img/content/slides/slide-1.jpg" alt="")
+            .intro__item
+              .intro__wrapper
+                .intro__title Узнай, на что способен твой голос!
+                footer.intro__footer
+                  a.btn.btn_lg.btn_main(hre="#" data-toggle="modal" data-target="#free" data-title="Получи урок бесплатно" data-link="/account/courses/") Получи урок бесплатно
+          .intro__slide.swiper-slide(style="background-image:url(../img/content/slides/slide-2.jpg);")
+            img.intro__picture.intro__picture_sm(src="../img/content/sm/2.png" alt="")
+            img.intro__picture.intro__picture_lg(src="../img/content/slides/slide-2.jpg" alt="")
+            .intro__item
+              .intro__wrapper
+                .intro__title Онлайн-школа свободного голоса ОКСАНЫ ФЕРЕНЧУК
+                footer.intro__footer
+                  a.btn.btn_lg.btn_main(hre="#" data-toggle="modal" data-target="#free") Получи урок бесплатно
+          .intro__slide.swiper-slide(style="background-image:url(../img/content/slides/slide-3.jpg);")
+            img.intro__picture.intro__picture_sm(src="../img/content/sm/3.png" alt="")
+            img.intro__picture.intro__picture_lg(src="../img/content/slides/slide-3.jpg" alt="")
+            .intro__item
+              .intro__wrapper
+                .intro__title ТЕРРИТОРИЯ Свободного ТВОРЧЕСТВА
+                footer.intro__footer
+                  a.btn.btn_lg.btn_main(hre="#" data-toggle="modal" data-target="#free") Получи урок бесплатно
+
+      .section.section_container.section_flex.section_minmb
+        .section__col.section__col_mr
+          .video.video_mb.embed-responsive.embed-responsive-16by9
+            iframe.test.embed-responsive-item(src="https://player.vimeo.com/video/551270653?app_id=122963" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="1 1 вступление" data-ready="true" controls="true" frameborder="0")
+        .section__col
+          .content
+            .content__title Привет, друзья!
+            .content__intro
+              p Я создала школу свободного голоса «По волнам», чтобы вы ощутили свободу творчества, самовыражения и получили удовольствие от процесса и результата. А результатом будет ваш свободный и яркий голос, умение выразить себя и свои идеи при помощи музыки и искусства.        
+            footer.content__footer
+              svg.icon-fluid
+                use(xlink:href="#icon-wave")
+        .section__col.section__col_footer
+          button.btn.btn_lg.btn_main(type="button") Принять участие
+
+      .section.section_light(data-aos="fade-down")
+        .container
+          .section__title Что такое школа 
+            br
+            |свободного голоса
+          .grid.grid_4col
+            .feature
+              .feature__header
+                .feature__icon.feature__icon_share
+                  svg.icon-fluid
+                    use(xlink:href="#icon-share")
+              .feature__text Здесь мы делимся самым важным и полезным в музыке и искусстве.
+            .feature
+              .feature__header
+                .feature__icon.feature__icon_voice
+                  svg.icon-fluid
+                    use(xlink:href="#icon-voice")
+              .feature__text Помогаем найти ваш собственный голос.
+            .feature
+              .feature__header
+                .feature__icon.feature__icon_manual
+                  svg.icon-fluid
+                    use(xlink:href="#icon-manual")
+              .feature__text Никаких лишних слов и сложных теорий, только упражнения и чёткие инструкции к действию.
+            .feature
+              .feature__header
+                .feature__icon.feature__icon_mission
+                  svg.icon-fluid
+                    use(xlink:href="#icon-mission")
+              .feature__text Миссия нашей школы - сделать каждого ученика поющим, самодостаточным и счастливым.
+        .waves
+          img.img-fluid(src="../img/bg/bg-waves.svg" alt="")
+
+      #target.section.section_container(data-aos="fade-down")
+        .section__title.text-center Этот курс для вас, если
+        .grid.grid_3col
+          .feature.feature_light
+            .feature__header.feature__header_abs
+              .feature__icon
+                svg.icon-fluid
+                  use(xlink:href="#icon-stars")
+            .feature__text.feature__text_lg Вы мечтаете раскрыть силу своего голоса и управлять им осознанно
+          .feature.feature_light
+            .feature__header.feature__header_abs
+              .feature__icon
+                svg.icon-fluid
+                  use(xlink:href="#icon-drama")
+            .feature__text.feature__text_lg Вы хотите улучшить дикцию, артикуляцию, чувство ритма и слух
+          .feature.feature_light
+            .feature__header.feature__header_abs
+              .feature__icon
+                svg.icon-fluid
+                  use(xlink:href="#icon-notes")
+            .feature__text.feature__text_lg Вы хотите собрать репертуар песен для своих выступлений
+          .feature.feature_light
+            .feature__header.feature__header_abs
+              .feature__icon
+                svg.icon-fluid
+                  use(xlink:href="#icon-emoji")
+            .feature__text.feature__text_lg Вы стремитесь найти единомышленников и обрести поддерживающее коммьюнити
+          .feature.feature_light
+            .feature__header.feature__header_abs
+              .feature__icon
+                svg.icon-fluid
+                  use(xlink:href="#icon-jewelry")
+            .feature__text.feature__text_lg Вы мечтаете писать песни в своём уникальном стиле
+          .feature.feature_light
+            .feature__header.feature__header_abs
+              .feature__icon
+                svg.icon-fluid
+                  use(xlink:href="#icon-guitar")
+            .feature__text.feature__text_lg Вы желаете аккомпанировать себе на разных инструментах
+
+      .section.section_maxlight(data-aos="fade-down")
+        .section__wrapper
+            .section__title.section__title_minmb Как проходит 
+              br
+              |обучение?
+        .section__row
+          .section__col.section__col_sm
+            .section__leftbg.section__leftbg_bottom
+              img.img-fluid(src="../img/bg/bg-maxlight.svg" alt="")
+            .section__leftbg.section__leftbg_top
+              img.img-fluid(src="../img/bg/section-maxlight.png" alt="")
+          .section__col.section__col_lg
+            .scroller-nav
+              button.scroller-nav__btn.scroller-nav__btn_prev(type="button")
+                img.img-fluid(src="../img/bg/icon-arrow-colored.svg" alt="")
+              button.scroller-nav__btn.scroller-nav__btn_next(type="button")
+                img.img-fluid(src="../img/bg/icon-arrow-colored.svg" alt="")
+            .scroller.swiper-container
+              .swiper-wrapper
+                .scroller__item.swiper-slide
+                  .feature.feature_sm
+                    .feature__title Короткие видеоуроки:
+                    .feature__text Каждое упражнение - видеоролик длиной 3-5 минут, с подробным пояснением смысла и механики выполнения. Для занятий потребуется 15-20 минут в день. Выполнять можно в удобном вам месте.
+                .scroller__item.swiper-slide
+                  .feature.feature_sm
+                    .feature__title Домашние задания:
+                    .feature__text Домашние задания в конце каждой недели. Их проверяет куратор или эксперт в чате поддержки. Каждая неделя содержит дополнительные материалы к изучению.
+                .scroller__item.swiper-slide
+                  .feature.feature_sm
+                    .feature__title Обратная связь:
+                    .feature__text Поддержка, мотивация и фидбэк по домашним заданиям каждый день в чате Телеграм.
+
+      .section.section_container.section_px(data-aos="fade-down")
+        .section__title.text-center Программа курсов
+        .tab-section
+          ul.nav.nav-tabs(role="tablist")
+            li.nav-item
+              a.nav-link.active(id="junior-tab" data-toggle="tab" href="#junior" role="tab" aria-controls="junior" aria-selected="true") Первая волна
+            li.nav-item
+              a.nav-link(id="middle-tab" data-toggle="tab" href="#middle" role="tab" aria-controls="middle" aria-selected="false") Вторая волна
+            li.nav-item
+              a.nav-link(id="senior-tab" data-toggle="tab" href="#senior" role="tab" aria-controls="senior" aria-selected="false") Третья волна
+          .tab-content
+            .tab-pane.fade.show.active(id="junior" role="tabpanel" aria-labelledby="junior-tab")
+              .details
+                .details__sidebar
+                  ul.details__list
+                    li.details__list-item старт
+                      br
+                      span.details__list-title 10 мая
+                    li.details__list-item
+                      span.font-weight-bold 4 
+                      |недели
+                    li.details__list-item
+                      span.font-weight-bold 4 
+                      |контрольных теста
+                    li.details__list-item
+                      span.font-weight-bold 5 
+                      |учебных пособия
+                    li.details__list-item
+                      span.font-weight-bold 60 
+                      |уроков
+                .details__content
+                  .details__title 1 неделя:
+                  .details__text Дыхание и опора (певческое дыхание, разогрев, работа с зажимами, нахождение опоры, театральная практика)
+                  .details__title 2 неделя:
+                  .details__text Регистры и резонаторы (прогрев, расслабление, координация)
+                  .details__title 3 неделя:
+                  .details__text Ритм и актёрские практики. Танцевальная медитация (связываем тело и голос)
+                  .details__title 4 неделя:
+                  .details__text Мелодические упражнения, знакомство с музыкальной терминологией. Исполнение песни под аккомпанемент.
+                .details__footer
+                  button.btn.btn_lg.btn_main(type="button") Записаться на курс
+            .tab-pane.fade(id="middle" role="tabpanel" aria-labelledby="middle-tab")
+            .tab-pane.fade(id="senior" role="tabpanel" aria-labelledby="senior-tab")
+
+      include includes/main/price.pug
+
+      #courses.section.section_container
+        .section__title.text-center(data-aos="fade-down") Курсы
+        .grid.grid_3col.grid_maxgap
+          .card.card_main.card_trial(data-aos="fade-down")
+            .card__picture
+              img.img-fluid(src="/img/content/courses/1.jpg" alt="")
+              span.card__overlay
+                span.card__offer Узнай, на что способен твой голос!
+                a.btn.btn_long.btn_main(href="#" data-toggle="modal" data-target="#test" data-title="Записаться на курс Первая волна" data-link="/pay/?order_id=4521")
+                  span.zi-2 Попробовать бесплатно
+            .card__body.card__body_visible
+              header.card__header
+                a.card__title(href="#") Первая волна
+                .card__text
+                  | В этой волне будем собирать все звуки, ноты и интервалы в мелодии и аккорды. Посвятим время четкости произношения...
+                  a.card__readmore(href="#") узнать больше &gt;&gt;&gt;
+              footer.card__footer
+                .card__inner.card__inner_mb
+                  .card__row стоимость курса
+                    br
+                    |без сопровождения:
+                    .card__price
+                      span.price 5 199
+                      |₽
+                  a.btn.btn_long.btn_main.btn_inverse(href="#" data-toggle="modal" data-target="#test" data-title="Записаться на курс Первая волна" data-link="/pay/?order_id=4521")
+                    span.zi-2 Записаться на курс
+                .card__row стоимость курса
+                  br
+                  |с сопровождением:
+                  .card__price.card__price_colored
+                    span.price 15 199
+                    |₽
+                a.btn.btn_long.btn_main(href="#" data-toggle="modal" data-target="#test" data-title="Записаться на курс Первая волна" data-link="/pay/?order_id=4521")
+                    span.zi-2 Записаться на курс
+          .card.card_main(data-aos="fade-down")
+            a.card__picture(href="#")
+              img.img-fluid(src="/img/content/courses/2.jpg" alt="")
+              .counter.counter_main.counter_card.counter_inverse
+                .counter__hidden
+                .counter__date 2021-06-05 23:59:59
+                .counter__wrapper
+            .card__body.card__body_visible
+              header.card__header
+                a.card__title(href="#") Вторая волна
+                .card__text В этой волне будем собирать все звуки, ноты и интервалы в мелодии и аккорды. Посвятим время четкости произношения...
+              footer.card__footer
+                .card__inner.card__inner_mb
+                  .card__row стоимость курса
+                    br
+                    |без сопровождения:
+                    .card__price
+                      span.price 5 199
+                      |₽ 
+                      span.price.price_old 6 199
+                  a.btn.btn_long.btn_main.btn_inverse(href="#" data-toggle="modal" data-target="#test" data-title="Записаться на курс Вторая волна" data-link="/pay/?order_id=4521")
+                    .zi-2 Записаться на курс
+                .card__row стоимость курса
+                  br
+                  |с сопровождением:
+                  .card__price.card__price_colored
+                    span.price 15 199
+                    |₽
+                a.btn.btn_long.btn_main(href="#" data-toggle="modal" data-target="#test" data-title="Записаться на курс Вторая волна" data-link="/pay/?order_id=4521") Записаться на курс
+          .card.card_main(data-aos="fade-down")
+            a.card__picture(href="#")
+              span.card__label 20%
+              img.img-fluid(src="/img/content/courses/3.jpg" alt="")
+            .card__body.card__body_visible
+              header.card__header
+                a.card__title(href="#") Третья волна
+                .card__text В этой волне будем собирать все звуки, ноты и интервалы в мелодии и аккорды. Посвятим время четкости произношения...
+              footer.card__footer
+                .card__inner.card__inner_mb
+                  .card__row стоимость курса
+                    br
+                    |без сопровождения:
+                    .card__price
+                      span.price 5 199
+                      |₽ 
+                      span.price.price_old 6 199
+                  a.btn.btn_long.btn_main.btn_inverse(href="#" data-toggle="modal" data-target="#test" data-title="Записаться на курс Третья волна" data-link="/pay/?order_id=4521")
+                    .zi-2 Записаться на курс
+                .card__row стоимость курса
+                  br
+                  |с сопровождением:
+                  .card__price.card__price_colored
+                    span.price 15 199
+                    |₽
+                a.btn.btn_long.btn_main(href="#" data-toggle="modal" data-target="#test" data-title="Записаться на курс Третья волна" data-link="/pay/?order_id=4521") Записаться на курс
+          .card.card_main(data-aos="fade-down")
+            a.card__picture(href="#")
+              img.img-fluid(src="/img/content/courses/6.jpg" alt="")
+            .card__body.card__body_visible
+              header.card__header
+                a.card__title(href="#") Пробное занятие
+                .card__text В этой волне будем собирать все звуки, ноты и интервалы в мелодии и аккорды. Посвятим время четкости произношения...
+              footer.card__footer
+                .card__subtitle.card__subtitle_lg бесплатно
+                a.btn.btn_long.btn_main(href="#" data-toggle="modal" data-target="#test" data-title="Записаться на курс Пробное занятие" data-link="/pay/?order_id=4521") Записаться на курс
+          .card.card_main(data-aos="fade-down")
+            a.card__picture(href="#")
+              img.img-fluid(src="/img/content/courses/4.jpg" alt="")
+            .card__body.card__body_visible
+              header.card__header
+                a.card__title(href="#") Основы игры на укулеле
+                .card__text В этой волне будем собирать все звуки, ноты и интервалы в мелодии и аккорды. Посвятим время четкости произношения...
+              footer.card__footer
+                .card__inner.card__inner_mb
+                  .card__row стоимость курса
+                    br
+                    |без сопровождения:
+                    .card__price
+                      span.price 5 199
+                      |₽
+                  a.btn.btn_long.btn_main.btn_inverse(href="#" data-toggle="modal" data-target="#test" data-title="Записаться на курс Основы игры на укулеле" data-link="/pay/?order_id=4521")
+                    .zi-2 Записаться на курс
+                .card__row стоимость курса
+                  br
+                  |с сопровождением:
+                  .card__price.card__price_colored
+                    span.price 15 199
+                    |₽
+                a.btn.btn_long.btn_main(href="#" data-toggle="modal" data-target="#test" data-title="Записаться на курс Основы игры на укулеле" data-link="/pay/?order_id=4521") Записаться на курс
+          .card.card_main(data-aos="fade-down")
+            a.card__picture(href="#")
+              img.img-fluid(src="/img/content/courses/5.jpg" alt="")
+            .card__body.card__body_visible
+              header.card__header
+                a.card__title(href="#") Основы диджеинга
+                .card__text В этой волне будем собирать все звуки, ноты и интервалы в мелодии и аккорды. Посвятим время четкости произношения...
+              footer.card__footer
+                .card__inner.card__inner_mb
+                  .card__row стоимость курса
+                    br
+                    |без сопровождения:
+                    .card__price
+                      span.price 5 199
+                      |₽
+                  a.btn.btn_long.btn_main.btn_inverse(href="#" data-toggle="modal" data-target="#test")
+                    .zi-2 Записаться на курс
+                .card__row стоимость курса
+                  br
+                  |с сопровождением:
+                  .card__price.card__price_colored
+                    span.price 15 199
+                    |₽
+                a.btn.btn_long.btn_main(href="#" data-toggle="modal" data-target="#test") Записаться на курс
+
+      .offer.offer_main(data-aos="fade-down")
+        .offer__wrapper
+          .offer__col.offer__col_top
+            .offer__title цена курса «первая волна»
+            .offer__row
+              .offer__feature.offer__feature_sale -20
+              .offer__feature
+                img.img-fluid(src="/img/content/tooltip.jpg" alt="")
+            .offer__row.offer__row_mb
+              .offer__price.offer__price_colored
+                .price 5 199
+                |₽
+              .offer__price.offer__price_old 7 997₽
+            .counter.counter_main
+              .counter__hidden
+              .counter__date 2021-06-05 23:59:59
+              .counter__title  До повышения цены осталось:
+              .counter__wrapper
+          .offer__col
+            .offer__title
+              |Записаться на
+              br
+              |курсы
+            form.form(action="#")
+              .form__body
+                .form__item.form__item_error
+                  input.form__field(type="text" value="" placeholder="")
+                  label.form__label.form__label_offer Имя*
+                  .form__error
+                    svg.icon-fluid
+                      use(xlink:href="#icon-error")
+                    span Поле Имя Должно быть заполнено.
+                .form__item.form__item_error
+                  input.form__field(type="text" value="" placeholder="")
+                  label.form__label.form__label_offer Почта*
+                  .form__error
+                    svg.icon-fluid
+                      use(xlink:href="#icon-error")
+                    span Поле “Почта” содержит некорректные символы.
+                .form__item
+                  input.form__field(type="text" value="" placeholder="")
+                  label.form__label.form__label_offer Телефон*
+                  .form__error
+                    svg.icon-fluid
+                      use(xlink:href="#icon-error")
+                    span
+              footer.form__footer
+                input.btn.btn_xl.btn_main(type="submit" value="Хочу владеть своим голосом!")
+              a.form__link(href="#" target="_blank") Политика конфиденциальности
+
+      #reviews.section.section_container(data-aos="fade-down")
+        .section__title Отзывы наших 
+          br
+          |студентов
+        footer.section__footer.text-center
+          a.btn.btn_xl.btn_main(href="#") Хочу владеть своим голосом
+        .text-center
+          a.form__link(href="#" target="_blank") Политика конфиденциальности
+
+      #contacts.section.section_rightbg(data-aos="fade-down")
+        .section__rightbg
+          img.img-fluid(src="../img/bg/bg-right.svg" alt="")
+        .section__wrapper
+          .section__col.section__col_md
+            .section__title.section__title_md
+              |Зарегистрируйся и 
+              br
+              |получи пробный 
+              br
+              |урок 
+              span.font-weight-bold бесплатно
+            form.form(action="#")
+              .form__body
+                .form__item.form__item_error
+                  input.form__field(type="text" value="" placeholder="")
+                  label.form__label.form__label_bg Имя*
+                  .form__error
+                    +icon('error')
+                    span Поле Имя Должно быть заполнено.
+                .form__item.form__item_error
+                  input.form__field(type="text" value="плыолыфылфао@gmail.com" placeholder="")
+                  label.form__label.form__label_bg Почта*
+                  .form__error
+                    +icon('error')
+                    span Поле “Почта” содержит некорректные символы.
+                .form__item
+                  input.form__field(type="text" value="" placeholder="")
+                  label.form__label.form__label_bg Телефон*
+                  .form__error
+                    +icon('error')
+                    span
+              footer.form__footer
+                input.btn.btn_xl.btn_main(type="submit" value="Хочу владеть своим голосом")
+              a.form__link(href="#" target="_blank") Политика конфиденциальности
+          .section__col
+            .video.video_mb.embed-responsive.embed-responsive-16by9
+              iframe.embed-responsive-item(src="https://player.vimeo.com/video/478533400?app_id=122963" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="1 1 вступление" data-ready="true" frameborder="0")
+              .play
+                .play__text
+                  +icon('text')
+                .play__btn
+                  +icon('play')
+        a.up.page-anchor(href="#top")
+          span.up__icon
+            +icon('up')
+          span.up__title Наверх
+
+    include includes/base/footer
+
+    include includes/main/modal
+
+    link(rel="preconnect" href="https://fonts.gstatic.com")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald&family=Raleway:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/core.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/dropdown.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/touch.js")
+
+    link(href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet")
+    script(src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js")
+
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.min.css" rel="stylesheet")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js")
+
+    link(href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet")
+    script(src="https://unpkg.com/aos@2.3.1/dist/aos.js")
+
+    script(src="https://unpkg.com/swiper@5.4.1/js/swiper.min.js")
+    script(src="https://player.vimeo.com/api/player.js")

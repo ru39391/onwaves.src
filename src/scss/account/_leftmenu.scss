@@ -1,0 +1,298 @@
+.leftmenu {
+    @include font(12px,500);
+
+    @include media-breakpoint-only(lg) {
+        @include border(1px 0 0,#f4f4f4);
+        padding: 5px 0 0;
+    }
+}
+
+.leftmenu__item {
+    @extend %flex-item;
+    color: $color__brand_optional;
+    transition: all .3s ease;
+
+    @include media-breakpoint-up(lg) {
+        @include offset(0 0 1px,6px 22px);
+    }
+
+    @include media-breakpoint-down(md) {
+        padding: 4px 8px;
+        position: relative;
+        justify-content: space-between;
+    }
+
+    &.leftmenu__item_current,
+    &:hover {
+        @include media-breakpoint-up(lg) {
+            background: #F2F2F2;
+        }
+    }
+
+    &.leftmenu__item_category {
+        text-transform: uppercase;
+
+        @include media-breakpoint-down(md) {
+            @include fs-lh(14px,30px);
+            font-family: $font-family_title;
+        }
+    }
+
+    &.leftmenu__item_nopx {
+        @include media-breakpoint-up(lg) {
+            padding: 0;
+        }
+
+        @include media-breakpoint-down(md) {
+            padding: 4px 8px;
+        }
+
+        .leftmenu__link {
+            @include media-breakpoint-up(lg) {
+                padding: 6px 22px 6px 47px;
+            }
+        }
+    }
+
+    &.leftmenu__item_locked {
+        position: relative;
+    }
+
+    &.open {
+        & + .leftmenu__children {
+            opacity: 1;
+            display: block;
+
+            .leftmenu__children {
+                opacity: 1;
+                display: block;
+            }
+
+            .leftmenu__icon {
+                transform: rotate(270deg);
+            }
+        }
+
+        .leftmenu__icon {
+            transform: rotate(270deg);
+        }
+    }
+
+    &.active {
+        & + .leftmenu__children {
+            opacity: 1;
+            display: block;
+
+            .active + .leftmenu__children {
+                display: block;
+
+                .active + .leftmenu__children {
+                    @include media-breakpoint-down(md) {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                    }
+
+                    .leftmenu__item {
+                        @include media-breakpoint-down(md) {
+                            @include py(0);
+                        }
+                    }
+                }
+            }
+        }
+
+        .leftmenu__icon {
+            transform: rotate(270deg);
+        }
+
+        .leftmenu__toggler-title {        
+            @include media-breakpoint-down(md) {
+                display: block;
+            }
+        }
+    }
+}
+
+.leftmenu__link {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $color__brand_optional;
+    transition: all .3s ease;
+
+    &.leftmenu__link_current,
+    &:hover {
+        @include media-breakpoint-up(lg) {
+            background: #F2F2F2;
+        }
+    }
+
+    &.leftmenu__link_bg {
+        @include media-breakpoint-down(md) {
+            @include wh(34px);
+            @include fs-lh(8px,10px);
+            @include grad($btn__colored_top,$btn__colored_bottom);
+            color: #fff;
+            padding: 6px;
+            // overflow: hidden;
+            // position: relative;
+            border-radius: 50%;
+            text-align: center;
+            white-space: inherit;
+            text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .leftmenu__icon {
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+
+            @include media-breakpoint-down(md) {
+                position: absolute;
+                top: -2px;
+                right: -2px;
+                transform: none;
+                color: $btn__base_top;
+            }
+        }
+    }
+
+    &.leftmenu__link_btn {
+        @include media-breakpoint-down(md) {
+            @include fs-lh(10px,12px);
+            @include offset(0 0 4px,2px 8px);
+            @include grad($btn__colored_top,$btn__colored_bottom);
+            color: #fff;
+            min-width: 80px;
+            border-radius: 16px;
+            text-align: center;
+            white-space: inherit;
+            text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .leftmenu__icon {
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+
+            @include media-breakpoint-down(md) {
+                transform: none;
+                margin: 0 0 0 4px;
+                color: $btn__base_top;
+            }
+        }
+    }
+}
+
+.leftmenu__toggler {
+    @extend %btn-default;
+    margin: -2px 15px 0 0;
+    transition: all .3s ease;
+
+    @include media-breakpoint-up(lg) {
+        transform: rotateY(180deg);
+    }
+
+    @include media-breakpoint-down(md) {
+        @include pos(0,0);
+        width: 100%;
+        bottom: 0;
+        padding: 0 8px;
+        order: 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 0;
+    }
+
+    & + .leftmenu__link {
+        @include media-breakpoint-down(md) {
+            pointer-events: none;
+        }
+    }
+}
+
+.leftmenu__toggler-title {
+    @include fs-lh(10px,12px);
+    font-weight: 500;
+    display: none;
+    text-transform: uppercase;
+    color: $color__brand_default;
+    font-family: $font-family_default;
+
+    @include media-breakpoint-down(md) {
+        margin: 0 4px 0 0;
+    }
+}
+
+.leftmenu__icon {
+    @include fw(10px);
+    @include wh(10px,10px);
+    transition: all .3s ease;
+    color: $color__brand_optional;
+
+    @include media-breakpoint-down(md) {
+        transform: rotate(90deg);
+    }
+}
+
+.leftmenu__locked {
+    @include wh(12px,12px);
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    margin: -6px 0 0;
+
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
+}
+
+.leftmenu__children {
+    opacity: 0;
+    display: none;
+    overflow: hidden;
+    transition: height .3s ease 0s, opacity .3s ease .1s;
+
+    @include media-breakpoint-up(lg) {
+        padding: 0 0 0 50px;
+    }
+
+    .leftmenu__item {
+        @include media-breakpoint-down(md) {
+            padding: 8px;
+        }
+    }
+}
+
+.leftmenu__desc {
+    @include fs-lh(10px,14px);
+    @include offset(0 0 8px,0 8px);
+    color: $btn__base_top;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+
+    @include media-breakpoint-down(md) {
+        @include fw(100%);
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    .leftmenu__icon {
+        margin: 0 2px 0 0;
+        transform: none;
+        color: $btn__base_top;
+    }
+}

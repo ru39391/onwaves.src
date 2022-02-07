@@ -1,0 +1,163 @@
+extends main-index
+
+block meta
+	- var title = 'Первая волна';
+
+block nav
+	nav.nav.nav_header
+		button.nav__close(type="button")
+			svg.icon-fluid
+				use(xlink:href="#icon-close")
+		.nav__left.nav__left_end
+			a.nav__link.nav__link_main(href="#" data-toggle="modal" data-target="#auth") Вход
+			a.nav__link.nav__link_main(href="#" data-toggle="modal" data-target="#reg") Регистрация
+
+	.social.social_header
+		a.social__item.social__item_sm(href="https://wa.me/79034071717")
+			svg.icon-fluid
+				use(xlink:href="#icon-contacts-wapp")
+		a.social__item.social__item_sm(href="#")
+			svg.icon-fluid
+				use(xlink:href="#icon-contacts-tg")
+		a.social__item.social__item_sm(href="tel:+79034071717")
+			svg.icon-fluid
+				use(xlink:href="#icon-contacts-phone")
+
+block page
+	.about
+		.container.container_flex
+			.about__col.about__col_lg
+				a.about__back(href="#")
+					svg.icon-fluid
+						use(xlink:href="#icon-back")
+			.about__col.about__col_md
+				h1 #{title}
+				.about__meta
+					.about__info
+						| Старт курса:
+						.about__date 12 марта 2021
+					.about__info
+						| Длительность курса:
+						.about__date 1 месяц
+				.about__content
+					p Эта волна посвящена самым базовым упражнениям, фундаментальным для каждого голоса. Мы разберемся, что значит правильное певческое дыхание, найдем опору для звука. Узнаем, где находятся наши резонаторы и озвучим в них. Поиграем в актеров и примерим разные эмоции, чтобы понять важность интонации голоса. И конечно зазвучим в упражнениях на развитие гибкости голоса.
+			.about__col.about__col_sm
+				.about__feature
+					.about__feature-value 60
+					| уроков
+				.about__feature
+					.about__feature-value 4
+					| контрольных теста
+				.about__feature
+					.about__feature-value 4
+					| учебных пособий
+
+	.container
+		.promo
+			.promo__video.embed-responsive.embed-responsive-16by9
+				iframe.embed-responsive-item(src="https://player.vimeo.com/video/164438721" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="1 1 вступление" data-ready="true" frameborder="0")
+			.promo__content
+				button.btn.btn_lg.btn_main(type="button") Записаться на курс
+		.section(data-aos="fade-down")
+			.section__title.text-center После курса вы получите
+			.features
+				.features__item
+					.features__item-icon
+						svg.icon-fluid
+							use(xlink:href="#icon-membership")
+					.features__item-title Поддерживающее коммьюнити в чате выпускников
+				.features__item
+					.features__item-icon
+						svg.icon-fluid
+							use(xlink:href="#icon-docs")
+					.features__item-title Диплом об окончании курса
+				.features__item
+					.features__item-icon
+						svg.icon-fluid
+							use(xlink:href="#icon-sales")
+					.features__item-title Cкидку на другие курсы школы
+
+		.plan.plan_offset(data-aos="fade-down")
+			.plan__bg
+				img.img-fluid(src="../img/bg/plan-offset.svg" alt="")
+			.plan__col.plan__col_hf.plan__col_column
+				//-.plan__sale
+					.plan__sale-bg
+					.plan__sale-title
+						| скидка
+						br
+						| 20%
+				.plan__title
+					| Стоимость
+					br
+					| обучения:
+				.plan__meta
+					.plan__subtitle Курс «Первая волна»‎
+					.plan__value.plan__value_colored
+						.price 6 399
+						|₽
+					//-.plan__value.plan__value_old 7 999₽
+				.plan__meta
+					.plan__subtitle Курс с сопровождением
+					.plan__value
+						.price 11 998
+						|₽
+				.plan__about.plan__about_visible
+					.plan__info
+						| Старт курса:
+						.plan__date 12 марта 2021
+					.plan__info
+						| Длительность курса:
+						.plan__date 1 месяц
+			.plan__col.plan__col_hf
+				.plan__title
+					|Запись
+					br
+					|на курс
+				- var btns = [{appender: 'Добавить способ'},{appender: 'Добавить способ'},{appender: 'Добавить способ'},{appender: 'Добавить способ'},{appender: 'Добавить способ'},{appender: 'Добавить способ'},{appender: 'Добавить способ'}]
+				form.form(action="#")
+					.form__body
+						.form__item
+							input.form__field(type="text" value="" placeholder="")
+							label.form__label.form__label_offer Имя*
+							.form__error
+								svg.icon-fluid
+									use(xlink:href="#icon-error")
+								span Поле Имя Должно быть заполнено.
+						.form__item
+							input.form__field(type="text" value="" placeholder="*")
+							label.form__label.form__label_offer Почта*
+							.form__error
+								svg.icon-fluid
+									use(xlink:href="#icon-error")
+								span Поле Почта Должно быть заполнено.
+						.form__item
+							input.form__field(type="text" value="" placeholder="")
+							label.form__label.form__label_offer Телефон*
+							.form__error
+								svg.icon-fluid
+									use(xlink:href="#icon-error")
+								span Поле Телефон Должно быть заполнено.
+						.form__title Удобные способы связи
+						each btns__item in btns
+							.form__item.form__item_extender
+								.form__row
+									.form__col
+										select.form__select.form__select_single
+											option Telegram
+											option WhatsApp
+											option VK
+											option Instagram
+											option Facebook
+									.form__col.form__col_aside
+										input.form__field(type="text" value="" placeholder="Номер, ссылка")
+										button.form__close.form__close_remover(type="button")
+											svg.icon-fluid
+												use(xlink:href="#icon-close-sm")
+						.form__item
+							button.form__btn.form__btn_appender(type="button") Добавить способ
+					footer.form__footer
+						button.btn.btn_lg.btn_main(type="submit") Записаться на курс
+					a.form__link(href="#" target="_blank") Политика конфиденциальности
+
+	include includes/main/price.pug

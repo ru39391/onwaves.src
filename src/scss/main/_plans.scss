@@ -1,0 +1,137 @@
+.plans {
+    display: grid;
+    grid-template-rows: 1fr;
+
+    @include media-breakpoint-up(xl) {
+        grid-column-gap: 60px;
+    }
+
+    @include media-breakpoint-only(lg) {
+        grid-column-gap: 40px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    @include media-breakpoint-down(md) {
+        grid-template-columns: repeat(1,1fr);
+        grid-row-gap: 40px;
+    }
+}
+
+.plans__item {
+    @extend %flex-column;
+    overflow: hidden;
+    position: relative;
+    border-radius: 16px;
+    justify-content: space-between;
+
+    @include media-breakpoint-up(xl) {
+        padding: 76px 64px 42px;
+    }
+
+    @include media-breakpoint-between(md,lg) {
+        padding: 64px 44px 42px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding: 32px 16px;
+    }
+
+    &:first-child {
+        background: #F4F4F4;
+    }
+
+    &:last-child {
+        background: #D7F9FB;
+    }
+}
+
+.plans__bg {
+    @extend %zi-1;
+    @extend %flex-column;
+    @include pos(0,0);
+    right: 0;
+    bottom: 32px;
+    justify-content: flex-end;
+}
+
+.plans__content {
+    @extend %zi-2;
+    margin: 0 0 64px;
+}
+
+.plans__title {
+    color: #453DAB;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+        @include font(36px,700);
+        margin: 0 0 52px;
+    }
+
+    @include media-breakpoint-only(sm) {
+        @include font(32px,700);
+    }
+
+    @include media-breakpoint-down(sm) {
+        margin: 0 0 32px;
+    }
+
+    @include media-breakpoint-only(xs) {
+        @include font(24px,700);
+    }
+}
+
+.plans__list {
+    @include offset(0,0);
+}
+
+.plans__list-item {
+    @include before;
+    @include fs-lh(18px,20px);
+    @include offset(0 0 16px,0 0 0 30px);
+    list-style: none;
+    color: #5247AD;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &:before {
+        @include pos(2px,0);
+        @include wh(16px,16px);
+        border-radius: 50%;
+        background: rgba(0,0,0,0);
+        border: 1px solid #B796FF;
+    }
+
+    &:after {
+        @include pos(4px,2px);
+        @include wh(12px,12px);
+        content: '';
+        border-radius: 50%;
+        background: #B796FF;
+    }
+}
+
+.plans__footer {
+    @extend %zi-2;
+    text-align: center;
+}
+
+.plans__row {
+    @extend %flex-item;
+    @include fs-lh(14px,16px);
+    margin: 0 0 20px;
+    text-align: left;
+    justify-content: center;
+}
+
+.plans__price {
+    @include fs-lh(36px,48px);
+    margin: 0 0 0 30px;
+    letter-spacing: 0.05em;
+    color: $color__brand_default;
+}

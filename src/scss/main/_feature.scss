@@ -1,0 +1,94 @@
+.feature {
+    border-radius: 16px;
+    border: 12px solid #fff;
+    background: $color__brand_light;
+    box-shadow: 1px 1px 16px 0 rgba(0, 43, 138, 0.15);
+
+    @include media-breakpoint-down(md) {
+        margin: 0 0 28px;
+    }
+
+    &.feature_light {
+        padding: 44px 18px 20px 28px;
+        position: relative;
+        background: #fff;
+        border: 12px solid $color__brand_light;
+    }
+
+    &.feature_sm {
+        height: 100%;
+        padding: 35px 14px 34px;
+        background: none;
+        box-shadow: none;
+
+        .feature__text {
+            padding: 0;
+        }
+    }
+
+    &:last-child {
+        @include media-breakpoint-down(md) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.feature__header {
+    position: relative;
+    margin: 0 0 16px;
+    height: 132px;
+
+    &.feature__header_abs {
+        @include pos(0,0);
+        height: 100px;
+        z-index: 1;
+        margin: 0;
+
+        .feature__icon {
+            @include wh(100px,100px);
+        }
+
+        & + .feature__text {
+            @extend %zi-2;
+        }
+    }
+}
+
+.feature__icon {
+    &.feature__icon_share {
+        @include wh(182px,102px);
+        @include pos(30px,0);
+    }
+
+    &.feature__icon_voice {
+        @include wh(120px,130px);
+        @include pos(0,20px);
+    }
+
+    &.feature__icon_manual {
+        @include wh(128px,120px);
+        @include pos(0,32px);
+    }
+
+    &.feature__icon_mission {
+        @include wh(115px,110px);
+        @include pos(20px,0);
+    }
+}
+
+.feature__title {
+    @include fs-lh(32px,34px);
+    margin: 0 0 20px;
+}
+
+.feature__text {
+    @include fs-lh(18px,26px);
+    padding: 0 20px 28px;
+    color: #003089;
+
+    &.feature__text_lg {
+        @include fs-lh(20px,22px);
+        padding: 0;
+        color: #453DAB;
+    }
+}

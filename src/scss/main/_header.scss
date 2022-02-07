@@ -1,0 +1,61 @@
+.header {
+    @extend %d-flex;
+    @extend %container;
+    @include py(10px);
+    align-items: center;
+    justify-content: space-between;
+
+    @include media-breakpoint-down(md) {
+        position: relative;
+        z-index: 1020;
+    }
+}
+
+.header__logo {
+    @include fw(220px);
+    @include wh(220px,60px);
+
+    @include media-breakpoint-up(xl) {
+        margin: 0 48px 0 0
+    }
+
+    @include media-breakpoint-only(lg) {
+        margin: 0 0 12px;
+    }
+
+    @include media-breakpoint-down(lg) {
+        order: 1;
+    }
+
+    @include media-breakpoint-only(xs) {
+        margin: 0 0 12px;
+    }
+}
+
+.header__toggler {
+    @extend %btn-default;
+
+    &.header__toggler_menu {
+        @include grad(#5B31F3,#501CC3);
+        @include fw(35px);
+        @include wh(35px,35px);
+        border-radius: 50%;
+
+        @include media-breakpoint-up(lg) {
+            display: none;        
+        }
+
+        @include media-breakpoint-down(md) {
+            order: 3;
+        }
+
+        @include media-breakpoint-down(md) {
+            @include inline-block;
+        }
+
+        @include media-breakpoint-only(xs) {
+            margin: 0 0 12px;
+            order: 2;
+        }
+    }
+}

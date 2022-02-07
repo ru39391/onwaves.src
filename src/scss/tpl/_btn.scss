@@ -1,0 +1,189 @@
+.btn {
+    @extend %btn-default;
+    @include grad($btn__base_top,$btn__base_bottom);
+    color: #fff;
+    padding: 10px 10px 10px 14px;
+    text-align: center;
+    border-radius: 15px;
+    text-transform: uppercase;
+    transition: all .3s ease 0s;
+
+    &:hover {
+        color: #fff;
+    }
+
+    &.btn_long {
+        width: 100%;
+    }
+
+    &.btn_xl {
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+            max-width: 302px;
+        }
+    }
+
+    &.btn_lg {
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+            max-width: 265px;
+        }
+    }
+
+    &.btn_md {
+        @include fs-lh(12px,16px);
+    }
+
+    &.btn_sm {
+        @include py(6px);
+        @include mw(170px);
+        text-transform: none;
+    }
+
+    &.btn_xs {
+        @include mw(114px);
+        @include fs-lh(14px,16px);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        padding: 10px 10px 9px 10px;
+    }    
+
+    &.btn_xxs {
+        @include fs-lh(12px,16px);
+        font-weight: 500;
+        padding: 2px 16px;
+        text-transform: none
+    }
+
+    &.btn_standart {
+        @include mw(200px);
+        font-weight: 500;
+    }
+
+    &.btn_regular {
+        @include mw(200px);
+        @include fs-lh(12px,16px);
+        font-weight: 500;
+    }
+
+    &.btn_flex {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &.btn_icon {
+        width: 100%;
+        padding: 10px;
+
+        .btn__icon {
+            margin: 0;
+        }
+    }
+
+    &.btn_inverse {
+        @include fs-lh(12px,14px);
+        padding: 8px 12px 6px;
+        color: $color__brand_optional;
+        border-radius: 15px;
+        border: 1px solid $color__brand_optional;
+        background: #fff;
+
+        &:hover,
+        &:focus {
+            color: $color__brand_optional;
+        }
+    }
+
+    &.btn_colored {
+        @include grad($btn__colored_top,$btn__colored_bottom);
+    }
+
+    &.btn_main {
+        @include before;
+        @include font(18px,500);
+        font-family: $font-family_content;
+        overflow: hidden;
+        padding: 13px 10px 14px;
+        border-radius: 8px;
+        text-transform: none;
+        background: #a780ff;
+        background: -moz-linear-gradient(-45deg,  #a780ff 0%, #5b31f3 50%, #501cc3 100%);
+        background: -webkit-linear-gradient(-45deg,  #a780ff 0%,#5b31f3 50%,#501cc3 100%);
+        background: linear-gradient(135deg,  #a780ff 0%,#5b31f3 50%,#501cc3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a780ff', endColorstr='#501cc3',GradientType=1 );
+        box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.15);
+
+        &:before {
+            @include pos(-30px,-100%);
+            bottom: 0;
+            width: 100%;
+            opacity: 0.2;
+            background: #fff;
+            pointer-events: none;
+            transform: rotate(145deg);
+            transition: all .6s ease;
+        }
+
+        &:hover {
+            &:before {
+                left: 120%;
+            }
+        }
+
+        &.btn_inverse {
+            @include before;
+            color: $btn__colored_top;
+
+            &:before {
+                @include pos(1px,1px);
+                right: 1px;
+                bottom: 1px;
+                opacity: 1;
+                z-index: 1;
+                width: auto;
+                transform: none;
+                border-radius: 6px;
+            }
+        }
+    }
+
+    &.btn_up {
+        @include wh(30px);
+        position: fixed;
+        right: 5px;
+        bottom: 300px;
+        padding: 4px;
+        z-index: 1040;
+        border-radius: 50%;
+        opacity: 0;
+        pointer-events: none;
+        transition: all .3s ease;
+
+        @include media-breakpoint-up(lg) {
+            display: none;
+        }
+
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        color: #fff;
+    }
+
+    .zi-2 {        
+        pointer-events: none;
+    }
+}
+
+.btn__icon {
+    @include fw(15px);
+    @include wh(15px,16px);
+    margin: 0 14px 0 0;
+}

@@ -1,0 +1,497 @@
+.form {
+    @extend %zi-2;
+
+    &.form_content {
+        font-family: $font-family_content;
+    }
+
+    &.form_inverse {
+        color: #fff;
+
+        .form__title {
+            color: #fff;
+        }
+
+        .form__label {
+            color: #fff;
+        }
+
+        .form__error {
+            background: #fff;
+        }
+
+        .form__field {
+            color: #fff;
+            border-color: rgba(0,0,0,0) rgba(0,0,0,0) #fff;
+
+            &::-webkit-input-placeholder {
+                color: #fff;
+            }
+        
+            &::-moz-placeholder {
+                color: #fff;
+            }
+        
+            &:-moz-placeholder {
+                color: #fff;
+            }
+        
+            &:-ms-input-placeholder {
+                color: #fff;
+            }
+        }
+
+        .form__close {
+            color: #fff;
+        }
+
+        .form__link {
+            color: #fff;
+        }
+
+        .form__btn {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .form__toggler {
+            color: #fff;
+
+            &.form__toggler_pwd {
+                &:before {
+                    background: #fff;
+                }
+            }
+        }
+
+        .fs-dropdown-selected {
+            color: #fff;
+            border-color: #fff;
+
+            &:before {
+                background: #fff;
+            }
+        
+            &:after {
+                background: #fff;
+            }
+        }
+        
+        .fs-dropdown-options {
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .fs-dropdown-item {
+            border-color: rgba(255,255,255,0.5);
+            color: #fff;
+            background: #6d59fe;
+        
+            &:hover {
+                background: $color__brand_optional;
+            }
+        
+            &.fs-dropdown-item_selected {
+                background: $color__brand_optional;
+            }
+        }
+
+        /* select2 */
+        .select2 {
+            &.select2-container {
+                .select2-selection {        
+                    .select2-search__field {
+                        color: #fff;
+                    }
+                }
+
+                .select2-selection__choice {
+                    border-color: #fff !important;
+                    background-color: rgba(0,0,0,0) !important
+                }
+
+                .select2-selection__choice__remove {
+                    color: #fff !important;
+                    border-color: #fff !important;
+
+                    &:hover {
+                        color: $color__brand_optional !important;
+                        background-color: #fff !important;
+                    }
+                }
+            }
+
+            &.select2-container--focus {
+                .select2-selection {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.form__body {
+    margin: 0 0 56px;
+
+    &.form__body_mb {
+        margin: 0 0 120px;
+    }
+
+    &.form__body_dark {
+        .form__item_error {
+            .form__field {
+                color: #8C0000 !important;
+                border-color: #8C0000 !important;
+            }
+
+            .form__label {
+                color: #8C0000 !important;
+                background: #6d59fe;
+            }
+        }
+
+        .form__error {
+            color: #8C0000;
+        }
+    }
+
+    &.form__body_light {
+        .form__item_error {
+            .form__label {
+                background: #00c9b1;
+            }
+        }
+    }
+}
+
+.form__item {
+    margin: 0 0 32px;
+    position: relative;
+
+    &.active {
+        .form__label {
+            opacity: 0;
+        }
+    }
+
+    &.form__item_error {
+        .form__field {
+            @include px(24px);
+            border-radius: 1px;
+            color: $color__danger;
+            border-color: $color__danger;
+        }
+
+        .form__label {
+            @include fs-lh(12px,14px);
+            top: -10px;
+            left: 12px;
+            height: auto;
+            padding: 2px 4px;
+            opacity: 1;
+            color: $color__danger;
+
+            &.form__label_bg {
+                background: #fff;
+            }
+
+            &.form__label_light {
+                background: #cafff2;
+            }
+
+            &.form__label_offer {
+                background: #e0f8ff;
+            }
+        }
+
+        .form__error {
+            display: block;
+        }
+
+        .form__toggler {
+            margin: -22px 0 0 !important;
+        }
+    }
+
+    &.form__item_extender {
+        display: none; 
+
+        &.active {
+            display: block; 
+        }
+
+        .form__intro {
+            @include media-breakpoint-only(xs) {
+                display: none;
+            }
+        }
+    }
+
+    &.form__item_icon {
+        position: relative;
+
+        .form__toggler {
+            @include wh(20px,20px);
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin: -10px 0 0;
+        }
+    }
+}
+
+.form__toggler {
+    @extend %btn-default;
+
+    &.form__toggler_pwd {
+        @include before;
+
+        &:before {
+            @include pos(3px,-4px);
+            @include wh(100%,2px);
+            border-radius: 2px;
+            transform: rotate(-45deg);
+            transform-origin: right top;
+            background: $btn__colored_top;
+        }
+
+        &.active {
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+
+.form__label {
+    @include pos(0,0);
+    height: 30px;
+    padding: 6px 0;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: all .3s ease;
+    color: $color__brand_optional;
+
+    @include media-breakpoint-up(md) {
+        @include fs-lh(14px,18px);
+    }
+
+    @include media-breakpoint-down(sm) {
+        @include fs-lh(16px,18px);
+    }
+}
+
+.form__field {
+    @include wh(100%,30px);
+    @include border(1px,rgba(0,0,0,0) rgba(0,0,0,0) $color__brand_optional);
+    padding: 6px 0;
+    letter-spacing: 0.05em;
+    transition: all .3s ease;
+    background: rgba(0,0,0,0);
+
+    @include media-breakpoint-up(md) {
+        @include fs-lh(14px,18px);
+    }
+
+    @include media-breakpoint-down(sm) {
+        @include fs-lh(16px,18px);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+
+        & + .form__label {
+            opacity: 0.5;
+        }
+    }
+
+    &::-webkit-input-placeholder {
+        opacity: 0;
+        letter-spacing: 0.05em;
+        color: $color__brand_optional;
+    }
+
+    &::-moz-placeholder {
+        opacity: 0;
+        letter-spacing: 0.05em;
+        color: $color__brand_optional;
+    }
+
+    &:-moz-placeholder {
+        opacity: 0;
+        letter-spacing: 0.05em;
+        color: $color__brand_optional;
+    }
+
+    &:-ms-input-placeholder {
+        opacity: 0;
+        letter-spacing: 0.05em;
+        color: $color__brand_optional;
+    }
+}
+
+.form__error {
+    @extend %flex-item;
+    @include fs-lh(11px,14px);
+    display: none;
+    padding: 4px 10px;
+    color: $color__danger;
+
+    &.form__error_bg {
+        background: #fff;
+    }
+
+    .icon-fluid {
+        @include fw(16px);
+        @include wh(16px,16px);
+        margin: 0 5px 0 0;
+    }
+}
+
+.form__row {
+    @extend %d-flex;
+
+    &.form__row_column {
+        align-items: center;
+
+        @include media-breakpoint-up(sm) {
+            justify-content: space-between;
+        }
+    
+        @include media-breakpoint-only(xs) {
+            min-height: 76px;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+}
+
+.form__col {
+    @include media-breakpoint-up(sm) {
+        @include fw(100%/12*6);
+        padding: 0 40px 0 0;
+    }
+
+    @include media-breakpoint-only(xs) {
+        @include fw(100%);
+        margin: 0 0 12px;
+    }
+
+    &.form__col_aside {
+        position: relative;
+
+        @include media-breakpoint-only(xs) {
+            @include offset(0,0 40px 0 0);
+        }
+
+        .form__close {
+            @include wh(12px,12px);
+            position: absolute;
+            right: 0;
+            bottom: 4px;
+        }
+    }
+
+    &.form__col_md {
+        @include media-breakpoint-up(sm) {
+            @include fw(100%/12*7);
+        }
+    }
+
+    &.form__col_sm {
+        @include media-breakpoint-up(sm) {
+            @include fw(100%/12*5);
+            padding: 0;
+        }
+    }
+}
+
+.form__btn {
+    @extend %btn-default;
+    padding: 6px 12px;
+    border-radius: 15px;
+    transition: all .3s ease;
+    text-transform: uppercase;
+    color: $color__brand_optional;
+    border: 1px solid $color__brand_optional;
+
+    &.form__btn_icon {
+        @extend %flex-item;
+        @include fs-lh(12px,14px);
+        font-weight: 500;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        text-align: left;
+
+        @include media-breakpoint-up(sm) {
+            @include mw(148px);
+        }
+
+        .icon-fluid {
+            @include fw(22px);
+            @include wh(22px,18px);
+            margin: 0 0 0 12px;
+        }
+    } 
+}
+
+.form__close {
+    @extend %btn-default;
+    color: $color__brand_optional;
+}
+
+.form__title {
+    margin: 0 0 12px;
+    letter-spacing: 0.05em;
+    color: $color__brand_optional;
+}
+
+.form__intro {
+    @include fs-lh(10px,12px);
+}
+
+.form__link {
+    @extend .text-colored;
+    @extend .text-underline;
+
+    @include media-breakpoint-only(xs) {
+        display: block;
+        text-align: center;
+    }
+
+    &.form__link_sm {
+        @include fs-lh(12px,18px);
+    }
+
+    &.form__link_left {
+        @include media-breakpoint-only(xs) {
+            @include inline-block;
+            text-align: left;
+        }
+    }
+}
+
+.form__footer {
+    margin: 0 0 12px;
+
+    .form__col_md {
+        @include media-breakpoint-up(sm) {
+            order: 1;
+        }
+
+        @include media-breakpoint-only(xs) {
+            margin: 0;
+        }
+    }
+
+    .form__col_sm {
+        @include media-breakpoint-up(sm) {
+            order: 2;
+        }
+
+        @include media-breakpoint-only(xs) {
+            margin: 0 0 45px;
+        }
+    }
+}

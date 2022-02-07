@@ -1,0 +1,75 @@
+extends account-ui
+
+block meta
+  - var title = 'Базовые курсы / Первая волна';
+
+block content
+    .content__section
+        .content__pathway.content__pathway_mobile
+            .content__pathway-item 1 неделя / 1 день
+            button.btn.btn_colored.btn_xxs.show-sidebar(type="button") Выбрать урок
+        .content__video.embed-responsive.embed-responsive-16by9
+            iframe.embed-responsive-item(src="https://player.vimeo.com/video/464104635?app_id=122963" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="1 1 вступление" data-ready="true" frameborder="0")
+        nav.control
+            a.control__item.control__item_prev(href="#")
+                +icon('arrow','control__icon')
+                | предыдущий урок
+            a.control__item(href="#")
+                +icon('bookmark','control__icon')
+                | Добавить в закладки 
+            a.control__item.control__item_next(href="#")
+                +icon('arrow','control__icon')
+                | следующий урок 
+        nav.control
+            a.control__item.control__item_nomb(href="#")
+                +icon('bookmark','control__icon')
+                | Закладка
+            button.content__toggler.content__toggler_tooltip(type="button")
+                +icon('faq')
+                span.content__toggler-desc Позволяет сохранить момент воспроизведения до следующей авторизации.
+        br
+        .content__footer
+            button.checked(type="button") Отметить как пройденный
+                +icon('checked-border','checked__icon')
+
+    .content__section
+        .content__subtitle Вступление
+        .content__text
+            p
+                | Состоит из базовых упражнений, навыков, необходимых для свободного владения голосом.
+                br
+                | Шаг за шагом мы с вами исследуем себя, своё тело, дыхание, резонаторы ( где вибрирует звук), ваш уникальный звук и ваши эмоции.
+                br
+                | По окончанию 1 волны, мы с вами споём нашу первую песню. 
+
+    .content__section
+        .content__inner
+            .content__subtitle Аудио
+            .content__content
+                a.btn.btn_sm.btn_colored(href="#") minus_pesni.mp3
+
+        .content__inner
+            .content__subtitle Документы
+            .content__content
+                a.btn.btn_sm.btn_colored(href="#")
+                    span.preloader
+
+    .content__section.content__section_offer
+        button.btn.btn_colored.btn_standart(type="button") выбрать онлайн курс
+
+block tooltip
+    .tooltip
+        button.tooltip__close(type="button") &times;
+        .tooltip__section.tooltip__section_intro
+            .tooltip__text Следуйте подсказкам в описании, чтобы ваше обучение было максимально эффективным:
+        .tooltip__section
+            .tooltip__title Базовые курсы
+        .tooltip__section
+            .tooltip__title Первая волна
+            +image('content/tooltip.jpg','tooltip__img img-fluid')
+            .tooltip__text Эта волна посвящена самым базовым упражнениям, фундаментальным для каждого голоса. Мы разберемся, что значит правильное певческое дыхание, найдем опору для звука. Узнаем, где находятся наши резонаторы и озвучим в них. Поиграем в актеров и примерим разные эмоции, чтобы понять важность интонации голоса. И конечно зазвучим в упражнениях на развитие гибкости голоса.
+        .tooltip__section
+            .tooltip__title 1 неделя
+            .tooltip__text Что такое правильное певческое дыхание? Как найти опору для звука? Как сделать выдох длинным и спокойным? Все упражнения на этой неделе посвящены дыханию.
+        .tooltip__section
+            .tooltip__title 2 день

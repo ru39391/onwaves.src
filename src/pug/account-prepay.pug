@@ -1,0 +1,53 @@
+extends account-ui
+
+block meta
+  - var pageClass = 'page_nopl';
+  - var title = 'Оформление оплаты';
+
+block panel
+
+block sidebar
+
+block wrapper
+  .wrapper.wrapper_column.wrapper_wide
+    .content.content_lg.content_raleway
+      header.content__header.content__header_bg.content__header_center
+        .content__title.content__title_lg #{title}
+
+      block content
+        .content__body
+          form.form.form_centered.form_raleway(action="#")
+            .form__body.form__body_pb
+              .form__row
+                .form__item.form__item_wide
+                  .form__title.form__title_main Оставьте предоплату и 
+                    br
+                    | забронируйте себе место на курсе.
+
+              .form__row
+                .form__item.form__item_wide.form__item_border
+                  input.form__field(type="text" value="")
+                  label.form__label Имя*
+              .form__row
+                .form__item.form__item_wide.form__item_border
+                  input.form__field(type="email" value="")
+                  label.form__label Почта*
+              .form__row
+                .form__item.form__item_wide.form__item_border
+                  input.form__field(type="text" value="")
+                  label.form__label Телефон*
+
+            .form__footer.form__footer_row
+              .form__col
+                .form__row.form__row_ac
+                  .form__title.form__title_nomb
+                    | Итоговая
+                    br
+                    | сумма:
+                  .form__price
+                    span.price 6 999
+                    | ₽
+              .form__col.form__col_right
+                button.btn.btn_sm.btn_main(type="submit") Оплатить
+
+    include includes/base/footer.pug
